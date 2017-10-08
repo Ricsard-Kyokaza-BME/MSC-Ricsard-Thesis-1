@@ -6,7 +6,7 @@ WORKDIR /home/crs/app
 ADD . /home/crs/app
 
 # Install dependencies
-RUN npm install -g --unsafe-perm angular-cli@1.4.4 && \
+RUN npm install -g --unsafe-perm @angular/cli@1.4.4 && \
     cd /home/crs/app && \
     npm install
 
