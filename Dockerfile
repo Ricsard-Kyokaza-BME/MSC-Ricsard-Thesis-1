@@ -6,11 +6,7 @@ WORKDIR /home/crs/app
 ADD . /home/crs/app
 
 # Install dependencies
-RUN set -uex ;\
-    cd $(npm root -g)/npm \
-     && npm install fs-extra \
-     && sed -i -e s/graceful-fs/fs-extra/ -e s/fs\.rename/fs.move/ ./lib/utils/rename.js && \
-    npm install -g --unsafe-perm angular-cli && \
+RUN npm install -g --unsafe-perm angular-cli@1.4.4 && \
     cd /home/crs/app && \
     npm install
 
