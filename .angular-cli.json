@@ -19,7 +19,7 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "sd",
         "styles": [
-          "styles.scss"
+          { "input": "styles.scss", "lazy": true }
         ],
         "scripts": [
           "../node_modules/jquery/dist/jquery.slim.min.js",
