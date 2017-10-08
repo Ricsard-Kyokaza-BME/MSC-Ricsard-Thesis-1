@@ -57,8 +57,8 @@ let keyPath = '/etc/ssl/private/thesis-1.key';
 let certPath = '/etc/ssl/certs/thesis-1.crt';
 if (process.env.NODE_ENV === 'production') {
     console.log('Production mode on!');
-    keyPath = '/etc/ssl/private/privkey.pem';
-    certPath = '/etc/ssl/certs/cert.pem';
+    keyPath = '/etc/ssl/letsencrypt/live/balogotthon.ddns.net/privkey.pem';
+    certPath = '/etc/ssl/letsencrypt/live/balogotthon.ddns.net/cert.pem';
 }
 
 const options = {
