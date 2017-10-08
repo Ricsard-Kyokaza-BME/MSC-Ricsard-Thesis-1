@@ -53,13 +53,17 @@ app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
-if(process.env.NODE_ENV === 'production') {
-    console.log("Production mode on!")
+let keyPath = '/etc/ssl/private/thesis-1.key';
+let certPath = '/etc/ssl/certs/thesis-1.crt';
+if (process.env.NODE_ENV === 'production') {
+    console.log('Production mode on!');
+    keyPath = '/etc/ssl/private/privkey.pem';
+    certPath = '/etc/ssl/certs/cert.pem';
 }
 
 const options = {
-    key: readFileSync('/etc/ssl/private/thesis-1.key'),
-    cert:  readFileSync('/etc/ssl/certs/thesis-1.crt')
+    key: readFileSync(keyPath),
+    cert:  readFileSync(certPath)
 };
 
 spdy
@@ -67,8 +71,8 @@ spdy
     .listen(PORT, function(error) {
         if (error) {
             console.error(error);
-            return process.exit(1)
+            return process.exit(1);
         } else {
-            console.log('Listening on port: ' + PORT + '.')
+            console.log('Listening on port: ' + PORT + '.');
         }
     });

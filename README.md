@@ -1,9 +1,10 @@
-# Communal resource sharing service implementation on web and mobile platforms (fornt-end)
+# Communal resource sharing service implementation on web and mobile platforms (front-end)
 
-##Project seed
+## Project seed
 This project is based on [Angular Universal Starter](https://github.com/angular/universal-starter.git)
 
-##Notes on Angular Universal Starter
+## Notes on Angular Universal Starter
+
 ### Static or Dynamic
 This repo demonstrates the use of 2 different forms of Server Side Rendering.
 
