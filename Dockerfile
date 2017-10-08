@@ -12,3 +12,4 @@ RUN cd /home/crs/app && \
 # The command to run our app when the container is run
 VOLUME ["/home/crs/app"]
 CMD ["npm", "run-script", "build:dynamic:prod"]
+CMD ["npm", "run-script", "serve:dynamic"]
