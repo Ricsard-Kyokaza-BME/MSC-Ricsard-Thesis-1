@@ -1,0 +1,17 @@
+@import "variables";
+
+.primary-bg {
+  background-color: $primaryColor !important;
+}
+
+.bright-text {
+  color: $white !important;
+}
+
+.grey-text {
+  color: $greyFont;
+}
+
+.btn {
+  cursor: pointer;
+}

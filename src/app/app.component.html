@@ -1,6 +1,31 @@
-<h1>Universal Demo using Angular and Angular CLI</h1>
-
-<a routerLink="/">Home</a>
-<a routerLink="/lazy">Lazy</a>
+<div class="primary-bg sticky-top">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg w-100 navbar-light">
+                <a class="navbar-brand bright-text pt-0 pb-0 d-flex align-items-center flex-row" routerLink="/">
+                    <img class="mr-2" src="assets/icon.svg" alt="Social Dashboard icon" width="30px">
+                    <small>CRS</small>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link bright-text" routerLink="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link bright-text" routerLink="/login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
 
 <router-outlet></router-outlet>
+
+<footer class="text-center bright-text primary-bg align-items-center">
+    <small class="mb-0">BME MSC Thesis - 2017</small>
+</footer>

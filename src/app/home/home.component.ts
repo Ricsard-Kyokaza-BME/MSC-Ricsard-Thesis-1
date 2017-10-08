@@ -7,11 +7,11 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public message: string;
+  public categoryCount: number;
 
   constructor() {}
 
   ngOnInit() {
-    this.message = 'Hello2';
+    this.categoryCount = 0;
   }
 }
