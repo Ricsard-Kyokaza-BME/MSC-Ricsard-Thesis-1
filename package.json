@@ -7,9 +7,9 @@
     "url": "https://github.com/Ricsard-Kyokaza-BME/MSC-ricsard-thesis-1-frontend"
   },
   "author": {
-    "name" : "Richard Balog"
-  , "email" : "balog.richard.mail@gmail.com"
-  }
+    "name" : "Richard Balog",
+    "email" : "balog.richard.mail@gmail.com"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
