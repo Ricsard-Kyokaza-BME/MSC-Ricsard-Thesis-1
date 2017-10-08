@@ -1,5 +1,8 @@
 # Communal resource sharing service implementation on web and mobile platforms (front-end)
 
+[![Last build](http://balogotthon.ddns.net:8111/app/rest/builds/buildType:MscRicsardThesis_FrontEndBuild/statusIcon.svg)](http://balogotthon.ddns.net:8111/app/rest/builds/buildType:MscRicsardThesis_FrontEndBuild/statusIcon.svg)
+[![Known Vulnerabilities](https://snyk.io/test/github/Ricsard-Kyokaza-BME/MSC-ricsard-thesis-1-frontend/master/badge.svg)](https://snyk.io/test/github/Ricsard-Kyokaza-BME/MSC-ricsard-thesis-1-frontend/master)
+
 ## Project seed
 This project is based on [Angular Universal Starter](https://github.com/angular/universal-starter.git)
 
