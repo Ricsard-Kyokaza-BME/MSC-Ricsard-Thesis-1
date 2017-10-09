@@ -53,22 +53,31 @@ app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
-let keyPath = '/etc/ssl/private/thesis-1.key';
-let certPath = '/etc/ssl/certs/thesis-1.crt';
-if (process.env.NODE_ENV === 'production') {
-    console.log('Production mode on!');
-    keyPath = '/etc/ssl/letsencrypt/live/balogotthon.ddns.net/privkey.pem';
-    certPath = '/etc/ssl/letsencrypt/live/balogotthon.ddns.net/cert.pem';
-}
+// let keyPath = '/etc/ssl/private/thesis-1.key';
+// let certPath = '/etc/ssl/certs/thesis-1.crt';
+// if (process.env.NODE_ENV === 'production') {
+//     console.log('Production mode on!');
+//     keyPath = '/etc/ssl/letsencrypt/live/balogotthon.ddns.net/privkey.pem';
+//     certPath = '/etc/ssl/letsencrypt/live/balogotthon.ddns.net/cert.pem';
+// }
+//
+// const options = {
+//     key: readFileSync(keyPath),
+//     cert:  readFileSync(certPath)
+// };
+//
+// spdy
+//     .createServer(options, app)
+//     .listen(PORT, function(error) {
+//         if (error) {
+//             console.error(error);
+//             return process.exit(1);
+//         } else {
+//             console.log('Listening on port: ' + PORT + '.');
+//         }
+//     });
 
-const options = {
-    key: readFileSync(keyPath),
-    cert:  readFileSync(certPath)
-};
-
-spdy
-    .createServer(options, app)
-    .listen(PORT, function(error) {
+app.listen(PORT, function(error) {
         if (error) {
             console.error(error);
             return process.exit(1);
