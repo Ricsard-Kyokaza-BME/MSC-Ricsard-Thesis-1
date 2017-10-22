@@ -25,6 +25,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({ "global.GENTLY": false }),
     new webpack.ContextReplacementPlugin(
       // fixes WARNING Critical dependency: the request of a dependency is an expression
       /(.+)?angular(\\|\/)core(.+)?/,
