@@ -15,8 +15,16 @@
                             <a class="nav-link bright-text" routerLink="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link bright-text" routerLink="/login">Login</a>
+                            <a class="nav-link bright-text" *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
+                            <a class="nav-link bright-text" *ngIf="isLoggedIn()" routerLink="/">{{getSignedInUser().getFullName()}}</a>
                         </li>
+                        <li class="nav-item" *ngIf="isLoggedIn()">
+                            <a class="nav-link bright-text cursor-pointer" (click)="logout()">Logout</a>
+                        </li>
+                        <!--<li class="nav-item">-->
+                            <!--<a href="http://localhost:3030/auth/facebook" class="button">Login With Facebook</a>-->
+                        <!--</li>-->
+
                     </ul>
                 </div>
             </nav>
