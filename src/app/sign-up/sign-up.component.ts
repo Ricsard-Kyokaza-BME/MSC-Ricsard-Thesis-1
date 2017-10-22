@@ -10,24 +10,24 @@ import {Router} from '@angular/router';
 })
 export class SignUpComponent {
 
-    private _firstName: string;
-    private _lastName: string;
-    private _email: string;
-    private _password: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
 
     constructor(private _restService: RestService, private _router: Router) {
-        this._firstName = '';
-        this._lastName = '';
-        this._email = '';
-        this._password = '';
+        this.firstName = '';
+        this.lastName = '';
+        this.email = '';
+        this.password = '';
     }
 
     signUp() {
         this._restService.getFeatherRestClient().service(User.serviceName).create({
-            firstName: this._firstName,
-            lastName: this._lastName,
-            email: this._email,
-            password: this._password,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.email,
+            password: this.password,
         }).then(response => {
             this._router.navigate(['/login']);
         });

@@ -9,15 +9,15 @@ import {AuthenticationService} from '../rest/authentication.service';
 })
 export class LoginComponent {
 
-    private _email: string;
-    private _password: string;
+    email: string;
+    password: string;
 
     constructor(private _authService: AuthenticationService) {
-        this._email = '';
-        this._password = '';
+        this.email = '';
+        this.password = '';
     }
 
     loginLocalStrategy() {
-        this._authService.loginLocalStrategy(this._email, this._password);
+        this._authService.loginLocalStrategy(this.email, this.password);
     }
 }
