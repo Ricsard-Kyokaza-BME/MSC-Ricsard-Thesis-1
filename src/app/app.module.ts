@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {RestService} from './rest/rest.service';
-import {FormsModule} from "@angular/forms";
-import {AuthenticationService} from "./rest/authentication.service";
+import {FormsModule} from '@angular/forms';
+import {AuthenticationService} from './rest/authentication.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import {AuthenticationService} from "./rest/authentication.service";
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},
       { path: 'login', loadChildren: './login/login.module#LoginModule'},
-      { path: 'sign-up', loadChildren: './sign-up/sign-up.module#SignUpModule'}
+      { path: 'sign-up', loadChildren: './sign-up/sign-up.module#SignUpModule'},
+      { path: 'offer', loadChildren: './offer/offer.module#OfferModule'}
     ])
   ],
   providers: [

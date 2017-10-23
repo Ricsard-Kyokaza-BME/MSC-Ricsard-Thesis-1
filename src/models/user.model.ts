@@ -10,7 +10,8 @@ export class User extends CRUDEntity {
     createdAt: Date;
     updatedAt: Date;
 
-    constructor(id: string, firstName: string, lastName: string, email: string, facebookId: string, createdAt: Date, updatedAt: Date) {
+    constructor(id?: string, firstName?: string, lastName?: string, email?: string, facebookId?: string,
+                createdAt?: Date, updatedAt?: Date) {
         super(id);
         this.firstName = firstName;
         this.lastName = lastName;

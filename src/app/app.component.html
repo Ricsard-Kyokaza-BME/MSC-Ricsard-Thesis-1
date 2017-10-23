@@ -19,6 +19,9 @@
                             <a class="nav-link bright-text" *ngIf="isLoggedIn()" routerLink="/">{{getSignedInUser().getFullName()}}</a>
                         </li>
                         <li class="nav-item" *ngIf="isLoggedIn()">
+                            <a class="nav-link bright-text cursor-pointer" routerLink="/offer/create">New offer</a>
+                        </li>
+                        <li class="nav-item" *ngIf="isLoggedIn()">
                             <a class="nav-link bright-text cursor-pointer" (click)="logout()">Logout</a>
                         </li>
                         <!--<li class="nav-item">-->

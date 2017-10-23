@@ -1,10 +1,13 @@
 import {RestService} from '../app/rest/rest.service';
 import {ReflectiveInjector} from '@angular/core';
+import {classToPlain, Exclude} from 'class-transformer';
 
 export class CRUDEntity {
     static serviceName: string;
 
     private _id: string;
+
+    @Exclude()
     private _restService: RestService;
 
     constructor(id?: string) {
@@ -22,15 +25,15 @@ export class CRUDEntity {
     }
 
     public create(params?: any): Promise<CRUDEntity> {
-        return this._restService.getFeatherRestClient().service(this.getServiceName()).create(this, params);
+        return this._restService.getFeatherRestClient().service(this.getServiceName()).create(classToPlain(this), params);
     }
 
     public patch(params?: any): Promise<CRUDEntity> {
-        return this._restService.getFeatherRestClient().service(this.getServiceName()).patch(this.id, this, params);
+        return this._restService.getFeatherRestClient().service(this.getServiceName()).patch(this.id, classToPlain(this), params);
     }
 
     public update(params?: any): Promise<CRUDEntity> {
-        return this._restService.getFeatherRestClient().service(this.getServiceName()).update(this.id, this, params);
+        return this._restService.getFeatherRestClient().service(this.getServiceName()).update(this.id, classToPlain(this), params);
     }
 
     public remove(params?: any): Promise<any> {

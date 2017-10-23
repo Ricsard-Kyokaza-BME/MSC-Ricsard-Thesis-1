@@ -8,7 +8,7 @@ export class Category extends CRUDEntity {
     createdAt: Date;
     updatedAt: Date;
 
-    constructor(id: string, name: string, description: string, createdAt: Date, updatedAt: Date) {
+    constructor(id?: string, name?: string, description?: string, createdAt?: Date, updatedAt?: Date) {
         super(id);
         this.name = name;
         this.description = description;
