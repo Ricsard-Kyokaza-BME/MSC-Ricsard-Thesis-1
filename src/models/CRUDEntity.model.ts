@@ -17,15 +17,15 @@ export class CRUDEntity {
         return restService.getFeatherRestClient().service(this.serviceName).get(id);
     }
 
-    public create(): Promise<any> {
+    public create(): Promise<CRUDEntity> {
         return this._restService.getFeatherRestClient().service(this.getServiceName()).create(this);
     }
 
-    public patch(): Promise<any> {
+    public patch(): Promise<CRUDEntity> {
         return this._restService.getFeatherRestClient().service(this.getServiceName()).patch(this.id, this);
     }
 
-    public update(): Promise<any> {
+    public update(): Promise<CRUDEntity> {
         return this._restService.getFeatherRestClient().service(this.getServiceName()).update(this.id, this);
     }
 
