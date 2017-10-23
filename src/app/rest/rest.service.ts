@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
-import {default as feathers} from 'feathers-client';
-import * as rest from 'feathers-rest/client';
-import * as superagent from 'superagent';
 import {environment} from '../../environments/environment';
+import * as feathers from 'feathers/client';
+import * as rest from 'feathers-rest/client';
+import * as hooks from 'feathers-hooks';
+import * as auth from 'feathers-authentication-client';
+import * as superagent from 'superagent';
 
 @Injectable()
 export class RestService {
@@ -10,12 +12,20 @@ export class RestService {
     private _featherClient;
 
     constructor() {
+        let storage;
+
+        try {
+            storage = localStorage;
+        } catch (e) {
+            console.log('Local storage is not available');
+        }
+
         this._featherClient = feathers()
-            .configure(feathers.hooks())
+            .configure(hooks())
             .configure(rest(environment.apiEndpoint).superagent(superagent))
-            .configure(feathers.authentication({
+            .configure(auth({
                 path: '/authentication', // the server-side authentication service path
-                storage: localStorage // the server-side authentication service path
+                storage: storage // the server-side authentication service path
             }));
 
         // .configure(feathers.authentication({
