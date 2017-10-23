@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiEndpoint: 'http://localhost/api'
+    apiEndpoint: 'https://dev-balogotthon.ddns.net/api'
 };
