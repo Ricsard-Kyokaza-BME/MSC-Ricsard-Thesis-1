@@ -1,3 +1,9 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

@@ -13,24 +13,28 @@ export class CRUDEntity {
         this._restService = injector.get(RestService);
     }
 
-    public static findById(restService: RestService, id: String): Promise<any> {
-        return restService.getFeatherRestClient().service(this.serviceName).get(id);
+    public static findById(restService: RestService, id: String, params?: any): Promise<any> {
+        return restService.getFeatherRestClient().service(this.serviceName).get(id, params);
     }
 
-    public create(): Promise<CRUDEntity> {
-        return this._restService.getFeatherRestClient().service(this.getServiceName()).create(this);
+    public static find(restService: RestService, params?: any): Promise<any> {
+        return restService.getFeatherRestClient().service(this.serviceName).find(params);
     }
 
-    public patch(): Promise<CRUDEntity> {
-        return this._restService.getFeatherRestClient().service(this.getServiceName()).patch(this.id, this);
+    public create(params?: any): Promise<CRUDEntity> {
+        return this._restService.getFeatherRestClient().service(this.getServiceName()).create(this, params);
     }
 
-    public update(): Promise<CRUDEntity> {
-        return this._restService.getFeatherRestClient().service(this.getServiceName()).update(this.id, this);
+    public patch(params?: any): Promise<CRUDEntity> {
+        return this._restService.getFeatherRestClient().service(this.getServiceName()).patch(this.id, this, params);
     }
 
-    public remove(): Promise<any> {
-        return this._restService.getFeatherRestClient().service(this.getServiceName()).remove(this.id);
+    public update(params?: any): Promise<CRUDEntity> {
+        return this._restService.getFeatherRestClient().service(this.getServiceName()).update(this.id, this, params);
+    }
+
+    public remove(params?: any): Promise<any> {
+        return this._restService.getFeatherRestClient().service(this.getServiceName()).remove(this.id, params);
     }
 
     get id(): string {
