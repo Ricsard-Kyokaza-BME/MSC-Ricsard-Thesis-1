@@ -1,3 +1,9 @@
+@import "variables";
+
+.white-hr {
+  background-color: $white;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -6,4 +12,21 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.text-ellipsis-3-line {
+  $font-size: 16px;
+  $line-height: 1.2;
+  $lines-to-show: 3;
+
+  max-height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }

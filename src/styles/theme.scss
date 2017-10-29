@@ -4,8 +4,16 @@
   background-color: $primaryColor !important;
 }
 
+.primary-light-bg {
+  background-color: $primaryColorLight !important;
+}
+
 .white-bg {
   background-color: $white !important;
+}
+
+.grey-bg {
+  background-color: $greyFont !important;
 }
 
 .bright-text {
@@ -32,6 +40,14 @@
   border: 1px solid $border-color;
 }
 
-.border-radius-s {
+.border-radius-sm {
   border-radius: 4px;
+}
+
+.border-radius-top-sm {
+  border-radius: 4px 4px 0 0;
+}
+
+.border-radius-bottom-sm {
+  border-radius: 0 0 4px 4px;
 }
