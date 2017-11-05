@@ -1,5 +1,5 @@
 import {RestService} from '../app/rest/rest.service';
-import {Injector} from '@angular/core';
+import {ReflectiveInjector} from '@angular/core';
 import {classToPlain, Exclude} from 'class-transformer';
 
 export class CRUDEntity {
@@ -12,7 +12,7 @@ export class CRUDEntity {
 
     constructor(id?: string) {
         this._id = id;
-        const injector = Injector.create([{provide: RestService, deps: []}]);
+        const injector = ReflectiveInjector.resolveAndCreate([RestService]);
         this._restService = injector.get(RestService);
     }
 
