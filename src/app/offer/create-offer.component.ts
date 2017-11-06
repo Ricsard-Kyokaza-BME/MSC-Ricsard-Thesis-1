@@ -1,9 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Category} from '../../models/category.model';
 import {plainToClass} from 'class-transformer';
 import {RestService} from '../rest/rest.service';
 import {Offer} from '../../models/offer.model';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import {Http, RequestOptions, Headers} from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Component({
     selector: 'sd-create-offer',
@@ -16,7 +20,7 @@ export class CreateOfferComponent implements OnInit {
     selectedCategories: Category[];
     offer: Offer;
 
-    constructor(private _restService: RestService, private _router: Router) {
+    constructor(@Inject(Http) private _http: Http, private _restService: RestService, private _router: Router) {
         this.categories = [];
         this.selectedCategories = [];
         this.offer = new Offer();
@@ -51,4 +55,23 @@ export class CreateOfferComponent implements OnInit {
         this.selectedCategories.splice(this.selectedCategories.indexOf(category), 1);
     }
 
+    fileChange(event) {
+        const fileList: FileList = event.target.files;
+        if (fileList.length > 0) {
+            const file: File = fileList[0];
+            const formData: FormData = new FormData();
+            formData.append('files', file, file.name);
+            const headers = new Headers();
+            /** No need to include Content-Type in Angular 4 */
+            // headers.append('Content-Type', 'multipart/form-data');
+            const options = new RequestOptions({headers: headers});
+            this._http.post('https://balogotthon.ddns.net/file-server/', formData, options)
+                .map(res => res.json())
+                .catch(error => Observable.throw(error))
+                .subscribe(
+                    data => console.log('success'),
+                    error => console.log(error)
+                );
+        }
+    }
 }
