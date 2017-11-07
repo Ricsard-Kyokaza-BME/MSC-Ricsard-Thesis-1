@@ -8,6 +8,7 @@ import {RestService} from './rest/rest.service';
 import {FormsModule} from '@angular/forms';
 import {AuthenticationService} from './rest/authentication.service';
 import {HttpModule} from '@angular/http';
+import {FileServerService} from './rest/file-server.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {HttpModule} from '@angular/http';
   ],
   providers: [
       RestService,
-      AuthenticationService
+      AuthenticationService,
+      FileServerService
   ],
   bootstrap: [AppComponent]
 })

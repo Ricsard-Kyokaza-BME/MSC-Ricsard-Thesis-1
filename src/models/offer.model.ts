@@ -10,17 +10,19 @@ export class Offer extends CRUDEntity {
     price: string;
     categories: string[] | Category[];
     owner: string | User;
+    images: string[];
     createdAt: Date;
     updatedAt: Date;
 
     constructor(id?: string, title?: string, description?: string, price?: string, categories?: string[] | Category[],
-                owner?: string | User, createdAt?: Date, updatedAt?: Date) {
+                owner?: string | User, images?: string[], createdAt?: Date, updatedAt?: Date) {
         super(id);
         this.title = title;
         this.description = description;
         this.price = price;
         this.categories = categories;
         this.owner = owner;
+        this.images = images;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }

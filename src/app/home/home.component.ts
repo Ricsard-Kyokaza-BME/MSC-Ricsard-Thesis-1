@@ -3,6 +3,7 @@ import {Category} from '../../models/category.model';
 import {RestService} from '../rest/rest.service';
 import {plainToClass} from 'class-transformer';
 import {Offer} from '../../models/offer.model';
+import {FileServerService} from "../rest/file-server.service";
 
 @Component({
     selector: 'sd-home',
@@ -13,10 +14,12 @@ export class HomeComponent implements OnInit {
 
     categories: Category[];
     offers: Offer[];
+    fileServer: FileServerService;
 
-    constructor(private _restService: RestService) {
+    constructor(private _restService: RestService, fileServer: FileServerService) {
         this.categories = [];
         this.offers = [];
+        this.fileServer = fileServer;
     }
 
     ngOnInit() {

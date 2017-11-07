@@ -29,6 +29,7 @@
                     <h4 class="mb-0 text-white">{{offer.title}}</h4>
                     <!--<button class="btn btn-sm btn-dark">Edit</button>-->
                 </div>
+                <img class="w-100" *ngIf="offer.images?.length" [src]="fileServer.getBaseURL() + offer.images[0]">
                 <p class="mt-2 mb-0 text-ellipsis-3-line pl-2 pr-2 mb-2">
                     <small title="{{offer.description}}">{{offer.description}}</small>
                 </p>
