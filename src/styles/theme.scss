@@ -1,5 +1,11 @@
 @import "variables";
 
+* {
+  &:focus {
+    outline: none;
+  }
+}
+
 .primary-bg {
   background-color: $primaryColor !important;
 }
@@ -14,6 +20,10 @@
 
 .grey-bg {
   background-color: $greyFont !important;
+}
+
+.transparent-bg {
+  background-color: transparent !important;
 }
 
 .bright-text {
@@ -38,6 +48,22 @@
 
 .grey-border {
   border: 1px solid $border-color;
+}
+
+.grey-border-md {
+  border: 2px solid $border-color;
+}
+
+.dark-grey-border {
+  border: 1px solid $greyFont;
+}
+
+.dark-grey-border-md {
+  border: 2px solid $greyFont;
+}
+
+.transparent-border-md {
+  border: 2px solid transparent;
 }
 
 .border-radius-sm {

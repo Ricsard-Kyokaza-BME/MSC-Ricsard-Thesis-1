@@ -1,0 +1,18 @@
+@import "../../styles/variables";
+
+.custom-file-control {
+  border-color: $border-color;
+
+  &::before {
+    background-color: $primaryColor;
+    color: $white
+  }
+
+  &:lang(en):empty::after {
+    content: 'Browse an image';
+  }
+}
+
+agm-map {
+  height: 300px;
+}

@@ -1,0 +1,18 @@
+<div class="w-100 h-100 primary-bg border-radius-sm pb-5">
+  <div class="primary-light-bg border-radius-top-sm grey-text pl-2 pt-2 pb-2 pr-2">
+    <h4 class="mb-0 text-white">{{offer.title}}</h4>
+    <!--<button class="btn btn-sm btn-dark">Edit</button>-->
+  </div>
+  <img class="w-100" *ngIf="offer.images?.length" [src]="fileServer.getBaseURL() + offer.images[0]">
+  <p class="mt-2 mb-0 text-ellipsis-3-line pl-2 pr-2 mb-2">
+    <small title="{{offer.description}}">{{offer.description}}</small>
+  </p>
+  <hr class="mt-1 mb-1 white-hr"/>
+  <div class="pl-1 pr-1">
+                    <span class="grey-bg text-white font-xs pl-1 pr-1 pb-1 pt-1 ml-1 mr-1 border-radius-sm"
+                          *ngFor="let category of offer.categories">{{category.name}}</span>
+  </div>
+  <div class="price-holder bg-white border-radius-bottom-sm grey-text pl-2 pt-2 pb-2 pr-2">
+    <h4 class="mb-0 mt-0">{{offer.price | number}} Ft</h4>
+  </div>
+</div>

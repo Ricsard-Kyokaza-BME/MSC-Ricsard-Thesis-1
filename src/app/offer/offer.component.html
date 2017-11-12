@@ -1,0 +1,24 @@
+<div class="container-fluid mt-3" *ngIf="offer">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>{{offer.title}} -- {{offer.price | number}} Ft</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <h4>&quot;{{offer.description}}&quot;</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 text-center" style="min-height: 200px;">
+      <img *ngIf="offer.images?.length" [src]="fileServer.getBaseURL() + offer.images[0]" width="80%">
+    </div>
+    <div class="col-12 col-md-6">
+      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,16 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {RestService} from './rest.service';
 import {User} from '../../models/user.model';
 import {plainToClass} from 'class-transformer';
 import {Router} from '@angular/router';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AuthenticationService {
 
     private _feathersClient;
+    loginEvent: EventEmitter<User> = new EventEmitter();
+    isLoggedInEvent: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
     constructor(private _restService: RestService, private _router: Router) {
         this._feathersClient = _restService.getFeatherRestClient();
@@ -21,9 +24,11 @@ export class AuthenticationService {
             })
             .then(user => {
                 this._feathersClient.set('user', plainToClass(User, user));
-                console.log('User', this.getSignedInUser());
+                this.loginEvent.emit(this.getSignedInUser());
+                this.isLoggedInEvent.next(true);
             })
             .catch(err => {
+                this.isLoggedInEvent.next(false);
                 console.log(err);
             });
     }
@@ -42,6 +47,7 @@ export class AuthenticationService {
             this._feathersClient.set('user', plainToClass(User, user));
             console.log('User', this.getSignedInUser());
             this._router.navigate(['/']);
+            this.isLoggedInEvent.next(true);
         });
     }
 

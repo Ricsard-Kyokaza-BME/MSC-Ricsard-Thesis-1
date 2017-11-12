@@ -1,0 +1,11 @@
+<!-- Offers list -->
+<div class="container-fluid mt-2">
+    <div class="row">
+        <h3 class="text-center grey-text w-100 mt-4" *ngIf="offers.length == 0">There's no offers in the selected
+            categories</h3>
+
+        <sd-offer-list-item
+                class="col-12 ml-auto ml-md-0 mr-auto mr-md-0 col-md-6 col-lg-4 col-xl-3 pt-1 text-left text-white mb-4"
+                *ngFor="let offer of offers" [offer]="offer" routerLink="/offer/{{offer.id}}"></sd-offer-list-item>
+    </div>
+</div>

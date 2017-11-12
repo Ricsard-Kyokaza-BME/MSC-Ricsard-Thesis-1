@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 col-md-6 mx-auto mt-4 grey-text">
+            <div class="form-group">
+                <label for="displayName">Display name</label>
+                <input class="form-control" [ngModel]="user.getFullName()" id="displayName" disabled>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <input class="form-control" [(ngModel)]="user.firstName" id="firstName" placeholder="First name" [disabled]="!isOwnUser">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input class="form-control" [(ngModel)]="user.lastName" id="lastName" placeholder="Last name" [disabled]="!isOwnUser">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="user.email" id="email" disabled>
+            </div>
+
+            <button *ngIf="isOwnUser" class="btn btn-dark btn-block" (click)="save()">Save</button>
+        </div>
+    </div>
+</div>

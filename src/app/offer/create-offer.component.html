@@ -14,7 +14,7 @@
         <input type="number" class="form-control" [(ngModel)]="offer.price" id="price" placeholder="Price">
       </div>
       <div class="form-group grey-text">
-        <label for="price">Selected categories</label>
+        <label for="price">Categories</label>
         <div class="white-bg grey-border border-radius-sm d-flex align-items-center pt-2 pb-2 pl-2 pr-2">
           <div class="pt-1 pb-1 pl-2 pr-2 ml-1 mr-1 grey-bg bright-text border-radius-sm cursor-pointer"
                *ngIf="selectedCategories.length == 0">
@@ -29,13 +29,18 @@
       </div>
 
       <div class="form-group">
-        <label>Select image</label>
+        <label>Cover photo</label>
         <div>
           <label class="custom-file w-100">
             <input type="file" id="file" (change)="fileChange($event)" class="custom-file-input">
             <span class="custom-file-control"></span>
           </label>
         </div>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input id="location" placeholder="Search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
       </div>
 
       <button class="btn btn-dark btn-block" (click)="save()">Publish Offer</button>

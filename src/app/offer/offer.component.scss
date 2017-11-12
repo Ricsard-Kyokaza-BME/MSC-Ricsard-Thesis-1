@@ -1,0 +1,7 @@
+agm-map {
+  height: 300px;
+
+  @media all and (min-width: 768px){
+    height: 100%;
+  }
+}
