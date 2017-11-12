@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AuthenticationService} from './rest/authentication.service';
 import {Router} from '@angular/router';
+import {Roles} from '../models/roles.enum';
 
 
 @Component({
@@ -10,7 +11,10 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
 
-    constructor(private _authService: AuthenticationService, private _router: Router) { }
+    Roles = Roles;
+
+    constructor(private _authService: AuthenticationService, private _router: Router) {
+    }
 
     isLoggedIn() {
         return this._authService.getSignedInUser() != null;

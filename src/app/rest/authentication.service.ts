@@ -55,6 +55,11 @@ export class AuthenticationService {
         return this._feathersClient.get('user');
     }
 
+    updateSignedInUser() {
+        User.findById(this._restService, this.getSignedInUser().id)
+            .then(user => this._feathersClient.set('user', plainToClass(User, user)));
+    }
+
     logout() {
         this._feathersClient.logout();
         this._feathersClient.set('user', undefined);
