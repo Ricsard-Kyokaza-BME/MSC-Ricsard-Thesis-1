@@ -24,6 +24,10 @@ export class RestService {
             .configure(hooks())
             .configure(rest(environment.apiEndpoint).superagent(superagent))
             .configure(auth({
+                header: 'Authorization',
+                jwtStrategy: 'jwt',
+                cookie: 'feathers-jwt',
+                storageKey: 'feathers-jwt',
                 path: '/authentication', // the server-side authentication service path
                 storage: storage // the server-side authentication service path
             }));

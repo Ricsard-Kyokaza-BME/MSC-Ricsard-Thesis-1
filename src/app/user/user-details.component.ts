@@ -70,7 +70,7 @@ export class UserDetailsComponent implements OnInit {
 
     save() {
         this.setUserRole();
-        this.user.update().then(() => {
+        this.user.patch().then(() => {
             this._authService.updateSignedInUser();
             this._router.navigate(['/']);
         });

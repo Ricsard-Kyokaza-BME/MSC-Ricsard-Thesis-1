@@ -4,6 +4,7 @@ import {RestService} from '../rest/rest.service';
 import {plainToClass} from 'class-transformer';
 import {Offer} from '../../models/offer.model';
 import {FileServerService} from "../rest/file-server.service";
+import {Message} from "../../models/message.model";
 
 export interface CategoryListItem {
     category: Category;

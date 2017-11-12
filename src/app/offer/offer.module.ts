@@ -7,7 +7,7 @@ import {OwnOffersComponent} from './own-offers.component';
 import {SdCommonModule} from '../sd-common/sd-common.module';
 import {AgmCoreModule} from '@agm/core';
 import {OfferComponent} from './offer.component';
-import {IsLoggedInGuard} from "../guards/is-logged-in.guard";
+import {IsLoggedInGuard} from '../guards/is-logged-in.guard';
 
 @NgModule({
     imports: [

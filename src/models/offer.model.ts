@@ -11,12 +11,13 @@ export class Offer extends CRUDEntity {
     categories: string[] | Category[];
     owner: string | User;
     images: string[];
+    address: string;
     coordinates: number[];
     createdAt: Date;
     updatedAt: Date;
 
     constructor(id?: string, title?: string, description?: string, price?: string, categories?: string[] | Category[],
-                owner?: string | User, images?: string[], coordinates?: number[], createdAt?: Date, updatedAt?: Date) {
+                owner?: string | User, images?: string[], address?: string, coordinates?: number[], createdAt?: Date, updatedAt?: Date) {
         super(id);
         this.title = title;
         this.description = description;
@@ -24,6 +25,7 @@ export class Offer extends CRUDEntity {
         this.categories = categories || [];
         this.owner = owner;
         this.images = images || [];
+        this.address = address;
         this.coordinates = coordinates || [];
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;

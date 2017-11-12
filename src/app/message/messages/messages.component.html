@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <div class="row" *ngFor="let message of messages">
+    <div class="col-12">
+      <h4>{{message.from.getFullName()}} - <small><small>{{message.createdAt | date}}</small></small></h4>
+      <p>{{message.content}}</p>
+    </div>
+  </div>
+</div>

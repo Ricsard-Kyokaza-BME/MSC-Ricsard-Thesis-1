@@ -1,24 +1,60 @@
 <div class="container-fluid mt-3" *ngIf="offer">
   <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-12 grey-text text-center">
       <h2>{{offer.title}} -- {{offer.price | number}} Ft</h2>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-12 text-center">
-      <h4>&quot;{{offer.description}}&quot;</h4>
+    <div class="col-12 grey-text text-center">
+      <p>&quot;{{offer.description}}&quot;</p>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-12 col-md-6 text-center" style="min-height: 200px;">
-      <img *ngIf="offer.images?.length" [src]="fileServer.getBaseURL() + offer.images[0]" width="80%">
+    <div class="col-12 col-md-6 text-center" style="min-height: 200px; max-height: 300px;">
+      <img *ngIf="offer.images?.length" [src]="fileServer.getBaseURL() + offer.images[0]" height="100%">
     </div>
     <div class="col-12 col-md-6">
       <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
         <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
       </agm-map>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 grey-text form-group">
+      <label for="user">User</label>
+      <input id="user" class="form-control" [ngModel]="offer.owner.getFullName()" disabled>
+    </div>
+    <div class="col-12 col-md-6 grey-text form-group">
+      <label for="address">Address</label>
+      <input id="address" class="form-control" [ngModel]="offer.address" disabled>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 grey-text">
+      <label>Categories</label>
+      <div class="white-bg grey-border border-radius-sm d-flex align-items-center pt-2 pb-2 pl-2 pr-2">
+        <div class="pt-1 pb-1 pl-2 pr-2 ml-1 mr-1 grey-bg bright-text border-radius-sm cursor-pointer"
+             *ngIf="offer.categories.length == 0">
+          <p class="mb-0">This offer doesn't have any category</p>
+        </div>
+
+        <div class="pt-1 pb-1 pl-2 pr-2 ml-1 mr-1 primary-bg bright-text border-radius-sm"
+             *ngFor="let category of offer.categories">
+          <p class="mb-0">{{category.name}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 grey-text">
+      <label>Ask the user, or just buy it!</label>
+      <textarea class="form-control mb-3" [(ngModel)]="messageContent"></textarea>
+      <div class="d-flex">
+        <button class="btn btn-dark btn-block mr-3 mr-md-5" (click)="sendMessage()">Send message</button>
+        <button class="btn btn-dark btn-block mt-0">Buy</button>
+      </div>
     </div>
   </div>
 </div>
