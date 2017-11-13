@@ -3,7 +3,6 @@ import {Offer} from '../../models/offer.model';
 import {FileServerService} from '../rest/file-server.service';
 import {AuthenticationService} from '../rest/authentication.service';
 import {Router} from '@angular/router';
-import {User} from '../../models/user.model';
 
 @Component({
     selector: 'sd-offer-list-item',
@@ -27,9 +26,10 @@ export class OfferListItemComponent {
     isSignedInUserOwn() {
         if (this.offer.owner === this.getSignedInUserId()) {
             return true;
-        } else if (typeof this.offer.owner === 'object'
+        } else if (
+            (typeof this.offer.owner === 'object')
             && (this.offer.owner as Object).hasOwnProperty('_id')
-            && (this.offer.owner as User).id === this.getSignedInUserId()) {
+            && (this.offer.owner['_id'] === this.getSignedInUserId())) {
             return true;
         }
         return false;
