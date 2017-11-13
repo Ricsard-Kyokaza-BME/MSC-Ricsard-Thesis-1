@@ -22,7 +22,8 @@ import {IsLoggedInGuard} from '../guards/is-logged-in.guard';
         RouterModule.forChild([
             {path: 'create', component: CreateOfferComponent, pathMatch: 'full', canActivate: [IsLoggedInGuard]},
             {path: 'own', component: OwnOffersComponent, pathMatch: 'full', canActivate: [IsLoggedInGuard]},
-            {path: ':id', component: OfferComponent, pathMatch: 'full'}
+            {path: ':id', component: OfferComponent, pathMatch: 'full'},
+            {path: 'edit/:id', component: CreateOfferComponent, pathMatch: 'full', canActivate: [IsLoggedInGuard]}
         ])
     ],
     declarations: [CreateOfferComponent, OwnOffersComponent, OfferComponent]

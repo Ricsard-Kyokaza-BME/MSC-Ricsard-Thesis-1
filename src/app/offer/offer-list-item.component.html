@@ -1,7 +1,8 @@
 <div class="w-100 h-100 primary-bg border-radius-sm pb-5">
-  <div class="primary-light-bg border-radius-top-sm grey-text pl-2 pt-2 pb-2 pr-2">
+  <div class="primary-light-bg border-radius-top-sm grey-text pl-2 pt-2 pb-2 pr-2 d-flex align-items-center justify-content-between">
     <h4 class="mb-0 text-white">{{offer.title}}</h4>
-    <!--<button class="btn btn-sm btn-dark">Edit</button>-->
+    <button class="btn btn-sm btn-dark" (click)="editOffer()"
+            *ngIf="(offer.owner == getSignedInUserId()) || offer.owner.id == getSignedInUserId()">Edit</button>
   </div>
   <img class="w-100" *ngIf="offer.images?.length" [src]="fileServer.getBaseURL() + offer.images[0]">
   <p class="mt-2 mb-0 text-ellipsis-3-line pl-2 pr-2 mb-2">

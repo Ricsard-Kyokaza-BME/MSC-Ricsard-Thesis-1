@@ -1,13 +1,13 @@
 <div class="container-fluid mt-3" *ngIf="offer">
   <div class="row">
     <div class="col-12 grey-text text-center">
-      <h2>{{offer.title}} -- {{offer.price | number}} Ft</h2>
+      <h2>{{offer.title}}</h2>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-12 grey-text text-center">
-      <p>&quot;{{offer.description}}&quot;</p>
+  <div class="row p-3">
+    <div class="col-12 bright-text text-center primary-light-bg p-4 border-radius-sm">
+      <p class="mb-0">&quot;{{offer.description}}&quot;</p>
     </div>
   </div>
 
@@ -53,7 +53,7 @@
       <textarea class="form-control mb-3" [(ngModel)]="messageContent"></textarea>
       <div class="d-flex">
         <button class="btn btn-dark btn-block mr-3 mr-md-5" (click)="sendMessage()">Send message</button>
-        <button class="btn btn-dark btn-block mt-0">Buy</button>
+        <button class="btn btn-dark btn-block mt-0">Buy <br/><small>{{offer.price | number}} Ft</small></button>
       </div>
     </div>
   </div>
