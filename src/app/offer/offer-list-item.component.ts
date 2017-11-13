@@ -19,17 +19,17 @@ export class OfferListItemComponent {
         this.fileServer = fileServer;
     }
 
-    getSignedInUserId() {
-        return this._authService.getSignedInUser().id;
-    }
-
     isSignedInUserOwn() {
-        if (this.offer.owner === this.getSignedInUserId()) {
+        if (this._authService.getSignedInUser() == undefined) {
+            return false;
+        }
+
+        if (this.offer.owner === this._authService.getSignedInUser().id) {
             return true;
         } else if (
             (typeof this.offer.owner === 'object')
             && (this.offer.owner as Object).hasOwnProperty('_id')
-            && (this.offer.owner['_id'] === this.getSignedInUserId())) {
+            && (this.offer.owner['_id'] === this._authService.getSignedInUser().id)) {
             return true;
         }
         return false;
