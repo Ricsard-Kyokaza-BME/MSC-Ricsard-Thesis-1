@@ -25,7 +25,14 @@ export class OfferListItemComponent {
     }
 
     isSignedInUserOwn() {
-        return ((this.offer.owner === this.getSignedInUserId()) || (this.offer.owner as User).id === this.getSignedInUserId());
+        if (this.offer.owner === this.getSignedInUserId()) {
+            return true;
+        } else if (typeof this.offer.owner === 'object'
+            && (this.offer.owner as Object).hasOwnProperty('_id')
+            && (this.offer.owner as User).id === this.getSignedInUserId()) {
+            return true;
+        }
+        return false;
     }
 
     editOffer() {
