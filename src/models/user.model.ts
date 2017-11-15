@@ -24,11 +24,11 @@ export class User extends CRUDEntity {
         this.updatedAt = updatedAt;
     }
 
-    getFullName() {
+    getFullName(): string {
         return this.firstName + ' ' + this.lastName;
     }
 
-    hasRole(role: Roles) {
+    hasRole(role: Roles): boolean {
         return (this.roles.indexOf(role) > -1);
     }
 }

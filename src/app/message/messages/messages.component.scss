@@ -1,0 +1,9 @@
+@import "../../../styles/variables";
+
+.timestamp {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 10px;
+  color: rgba($white, 0.6);
+}

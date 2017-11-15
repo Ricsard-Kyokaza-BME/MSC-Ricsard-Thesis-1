@@ -28,7 +28,8 @@ import {IsLoggedInGuard} from "./guards/is-logged-in.guard";
       { path: 'sign-up', loadChildren: './sign-up/sign-up.module#SignUpModule'},
       { path: 'offer', loadChildren: './offer/offer.module#OfferModule'},
       { path: 'user', loadChildren: './user/user.module#UserModule'},
-      { path: 'message', loadChildren: './message/message.module#MessageModule'}
+      { path: 'message', loadChildren: './message/message.module#MessageModule'},
+      { path: 'admin', loadChildren: './admin/admin.module#AdminModule'}
     ])
   ],
   providers: [

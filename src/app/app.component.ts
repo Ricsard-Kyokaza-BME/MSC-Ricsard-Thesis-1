@@ -24,6 +24,10 @@ export class AppComponent {
         return this._authService.getSignedInUser();
     }
 
+    isAdmin() {
+        return this._authService.getSignedInUser().hasRole(Roles.Admin);
+    }
+
     logout() {
         this._authService.logout();
         this._router.navigate(['/']);

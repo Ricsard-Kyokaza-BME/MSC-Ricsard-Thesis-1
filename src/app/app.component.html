@@ -27,6 +27,9 @@
                         <li class="nav-item" *ngIf="isLoggedIn()">
                             <a class="nav-link bright-text cursor-pointer" routerLink="/message">Messages</a>
                         </li>
+                        <li class="nav-item" *ngIf="isLoggedIn() && isAdmin()">
+                            <a class="nav-link bright-text cursor-pointer" routerLink="/admin/category">Manage Categories</a>
+                        </li>
                         <li class="nav-item" *ngIf="isLoggedIn()">
                             <a class="nav-link bright-text cursor-pointer" (click)="logout()">Logout</a>
                         </li>
