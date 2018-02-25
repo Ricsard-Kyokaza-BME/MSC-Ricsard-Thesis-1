@@ -1,0 +1,13 @@
+%highlight-shadow-sm {
+  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.25);
+}
+
+@mixin small-hover-zoom-in-out($zoomLevel) {
+  transition: all 300ms ease-in-out;
+  transform: scale(1);
+
+  &:hover {
+    transition: all 100ms ease-in-out;
+    transform: scale($zoomLevel);
+  }
+}

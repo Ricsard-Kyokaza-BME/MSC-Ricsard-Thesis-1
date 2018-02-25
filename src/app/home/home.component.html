@@ -1,4 +1,4 @@
-<div class="container-fluid" style="padding-left: 30px !important; padding-right: 30px !important;">
+<div class="container-fluid">
 
     <!-- Categories list -->
     <div class="row">
@@ -17,13 +17,13 @@
     </div>
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-11 mx-auto">
             <hr class="mt-0 mb-2"/>
         </div>
     </div>
 
     <!-- Offers list -->
-    <div class="row">
+    <div class="row" style="padding-left: 30px !important; padding-right: 30px !important;">
         <h3 class="text-center grey-text w-100 mt-4" *ngIf="offers.length == 0">There's no offers in the selected categories</h3>
 
         <sd-offer-list-item class="col-12 ml-auto ml-md-0 mr-auto mr-md-0 d-flex flex-column

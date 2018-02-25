@@ -13,6 +13,15 @@
   }
 }
 
+.custom-file-input {
+  position: absolute;
+  height: 100%;
+}
+
 agm-map {
   height: 300px;
+}
+
+.remove-picture-btn {
+  z-index: 10;
 }

@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <h3 class="text-center grey-text w-100 mt-4" *ngIf="messages.length == 0">You don't have any messages</h3>
 
-  <div class="row mt-4" *ngFor="let grouppedMessage of grouppedMessages">
+  <div class="row mt-4 mb-5" *ngFor="let grouppedMessage of grouppedMessages">
     <div class="col-12 col-md-11 mx-auto">
-      <div class="container-fluid">
+      <div class="container-fluid pl-0 pr-0">
         <div class="row">
           <div class="col-12">
-            <h4 class="grey-text">{{grouppedMessage.messages[0].from.getFullName()}}</h4>
+            <h3 class="bright-text mb-0">{{grouppedMessage.messages[0].from.getFullName()}}</h3>
             <hr/>
           </div>
         </div>
@@ -14,17 +14,17 @@
       <div class="container-fluid">
         <div class="row">
           <div *ngFor="let message of grouppedMessage.messages"
-               [ngClass]="{'ml-auto grey-bg': message.from.id == getSignedInUserId(), 'mr-auto primary-light-bg': message.from.id != getSignedInUserId()}"
-               class="col-10 col-md-8 white-border border-radius-sm bright-text p-3">
+               [ngClass]="{'ml-auto bright-text darker-bg-opaque': message.from.id == getSignedInUserId(), 'mr-auto grey-text white-bg': message.from.id != getSignedInUserId()}"
+               class="col-10 col-md-8 white-border border-radius-sm bright-text p-3 mb-3">
             <div class="d-flex align-items-start justify-content-between">
               <p class="mb-0">{{message.content}}</p>
               <p class="timestamp mb-0">{{message.createdAt | date:'medium'}}</p>
             </div>
           </div>
           <div class="col-11 mx-auto form-group px-0 mt-3">
-            <textarea class="form-control" rows="3" [(ngModel)]="newMessageContentMap[grouppedMessage.groupId]" [placeholder]="'Type a reply message'"></textarea>
+            <textarea class="form-control" rows="1" [(ngModel)]="newMessageContentMap[grouppedMessage.groupId]" [placeholder]="'Type a reply message'"></textarea>
 
-            <button class="btn btn-dark mt-2" (click)="sendReply(grouppedMessage.groupId)">Reply</button>
+            <button class="btn btn-bright mt-2" (click)="sendReply(grouppedMessage.groupId)">Reply</button>
           </div>
         </div>
       </div>

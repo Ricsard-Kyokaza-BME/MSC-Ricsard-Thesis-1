@@ -1,4 +1,5 @@
 @import "variables";
+@import "extendables";
 
 * {
   &:focus {
@@ -11,7 +12,7 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  @extend %small-hover-zoom-in-out;
+  @include small-hover-zoom-in-out(1.1);
   color: $greyFont !important;
 
   &:hover {
@@ -19,18 +20,8 @@
   }
 }
 
-%small-hover-zoom-in-out {
-  transition: all 300ms ease-in-out;
-  transform: scale(1);
-
-  &:hover {
-    transition: all 100ms ease-in-out;
-    transform: scale(1.1);
-  }
-}
-
 .small-hover-zoom-in-out {
-  @extend %small-hover-zoom-in-out;
+  @include small-hover-zoom-in-out(1.1);
 }
 
 .primary-bg {
@@ -45,11 +36,15 @@
   background-color: $white !important;
 }
 
-.grey-bg {
-  background-color: $greyFont !important;
+.white-bg-opaque {
+  background-color: rgba($white, 0.8) !important;
 }
 
-.grey-bg-opaque {
+.darker-bg-opaque {
+  background-color: rgba($black, 0.1) !important;
+}
+
+.grey-bg {
   background-color: $greyFont !important;
 }
 
@@ -122,5 +117,29 @@
 }
 
 .highlight-shadow-sm {
-  box-shadow: 0 3px 24px rgba(0, 0, 0, 0.25);
+  @extend %highlight-shadow-sm;
+}
+
+.ml--1 {
+  margin-left: -0.25rem;
+}
+
+.mr--1 {
+  margin-right: -0.25rem;
+}
+
+.mt--2 {
+  margin-top: -0.5rem;
+}
+
+.ml--15px {
+  margin-left: -15px;
+}
+
+.mr--15px {
+  margin-right: -15px;
+}
+
+.crs-file-label {
+  background-color: transparent;
 }

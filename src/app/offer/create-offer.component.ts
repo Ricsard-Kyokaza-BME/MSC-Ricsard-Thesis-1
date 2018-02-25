@@ -24,6 +24,11 @@ export class CreateOfferComponent implements OnInit {
     selectedCategories: Category[];
     offer: Offer;
     isEditing: boolean;
+    selectedImagePreviewSrc: string;
+    selectedImages: FileList;
+
+    @ViewChild('pictureFileInput')
+    pictureFileInputRef: ElementRef;
 
     @ViewChild('search')
     public searchElementRef: ElementRef;
@@ -35,6 +40,7 @@ export class CreateOfferComponent implements OnInit {
         this.selectedCategories = [];
         this.offer = new Offer();
         this.isEditing = false;
+        this.selectedImagePreviewSrc = '';
     }
 
     ngOnInit() {
@@ -93,6 +99,18 @@ export class CreateOfferComponent implements OnInit {
             return item.id;
         });
 
+        if (this.selectedImages) {
+            this._fileServer.uploadFiles(this.selectedImages)
+                .subscribe(data => {
+                    this.offer.images = data;
+                    this.sendOffer();
+                });
+        } else {
+            this.sendOffer();
+        }
+    }
+
+    sendOffer() {
         if (!this.isEditing) {
             this.offer.create().then(
                 response => {
@@ -118,10 +136,21 @@ export class CreateOfferComponent implements OnInit {
         this.selectedCategories.splice(this.selectedCategories.indexOf(category), 1);
     }
 
+    clearFileInput(e: Event) {
+        e.preventDefault();
+        this.pictureFileInputRef.nativeElement.value = '';
+        this.selectedImagePreviewSrc = '';
+    }
+
     fileChange(event) {
-        this._fileServer.uploadFiles(event.target.files)
-            .subscribe(
-                data => this.offer.images = data
-            );
+        if (event.target.files && event.target.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = (e) => this.selectedImagePreviewSrc = (e.target as any).result;
+
+            reader.readAsDataURL(event.target.files[0]);
+
+            this.selectedImages = event.target.files;
+        }
     }
 }

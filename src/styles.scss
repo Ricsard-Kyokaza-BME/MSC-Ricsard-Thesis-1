@@ -9,7 +9,6 @@ body {
   position: relative;
   padding-bottom: 4rem;
   background-color: $greyFont;
-  //background-color: black;
 
   font-family: -apple-system-font, "Helvetica Neue", Helvetica, arial, sans-serif;
   text-rendering: optimizeLegibility;
@@ -46,4 +45,76 @@ hr {
 
 .font-xs {
   font-size: 12px;
+}
+
+label {
+  color: $white;
+}
+
+.form-control {
+  background-color: transparent;
+  color: $white;
+  border-radius: $borderRadius;
+
+  &-xl {
+    font-size: 2rem;
+  }
+
+  &:focus {
+    background-color: rgba($black, 0.1);
+    color: $white;
+    border-color: $white;
+    box-shadow: 0 0 0 0.2rem rgba($greyFont, 0.25)
+  }
+
+  &:disabled {
+    color: $greyFont;
+  }
+
+  &.transparent {
+    border-color: transparent;
+
+    &:focus {
+      border-color: transparent;
+      box-shadow: none;
+    }
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+
+//Bootstrap overrides
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $white;
+  opacity: 1; /* Firefox */
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $white;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+  color: $white;
+}
+
+.btn {
+  border-radius: $borderRadius;
+  @include small-hover-zoom-in-out(1.02);
+
+  &:hover {
+    @extend %highlight-shadow-sm;
+  }
+}
+
+.btn-bright {
+  color: $greyFont;
+  background-color: $white;
+  border-color: transparent;
+
+  &:hover {
+    background-color: rgba($white, 0.9);
+  }
 }

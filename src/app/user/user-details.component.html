@@ -1,10 +1,12 @@
 <div class="container-fluid">
     <div class="row">
+        <div class="col-12 col-md-11 mx-auto mt-4 grey-text">
+            <h3 class="bright-text">{{user.getFullName()}}</h3>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-10 col-md-6 mx-auto mt-4 grey-text">
-            <div class="form-group">
-                <label for="displayName">Display name</label>
-                <input class="form-control" [ngModel]="user.getFullName()" id="displayName" disabled>
-            </div>
             <div class="form-group">
                 <label for="firstName">First name</label>
                 <input class="form-control" [(ngModel)]="user.firstName" id="firstName" placeholder="First name" [disabled]="!isOwnUser">
@@ -20,7 +22,7 @@
 
             <div class="d-flex flex-column">
                 <label for="userRole">Select role</label>
-                <small>Seller can do the same as user, except it can post new offers</small>
+                <small class="bright-text">Seller can do the same as user, except it can post new offers</small>
             </div>
             <div class="form-group d-flex">
                 <div class="mr-5">
@@ -34,7 +36,7 @@
             </div>
 
 
-            <button *ngIf="isOwnUser" class="btn btn-dark btn-block" (click)="save()">Save</button>
+            <button *ngIf="isOwnUser" class="btn btn-bright btn-block mt-5" (click)="save()">Save</button>
         </div>
     </div>
 </div>

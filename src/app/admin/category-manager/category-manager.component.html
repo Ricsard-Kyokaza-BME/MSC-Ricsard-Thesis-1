@@ -1,6 +1,23 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-10 col-md-6 mx-auto mt-4 grey-text">
+    <div class="col-12 col-md-11 mx-auto mt-4 grey-text">
+      <h3 class="bright-text">Existing Categories</h3>
+      <hr/>
+      <div class="d-flex align-items-center flex-wrap">
+        <div class="pt-1 pb-1 pl-2 pr-2 mb-2 ml-1 mr-1 text-center border-radius-sm bright-text transparent-bg white-border cursor-default"
+             *ngIf="categories.length == 0">
+          <p class="mb-0">There's no categories yet</p>
+        </div>
+
+        <div class="pt-1 pb-1 pl-2 pr-2 mb-2 ml-1 mr-1 text-center border-radius-sm bright-text transparent-bg white-border cursor-default"
+             *ngFor="let category of categories">
+          <p class="mb-0">{{category.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto mt-5 grey-text">
       <div class="form-group">
         <label for="title">Category name</label>
         <input class="form-control" [(ngModel)]="newCategory.name" id="title" placeholder="Category name">
@@ -10,22 +27,7 @@
         <textarea class="form-control" rows="3" [(ngModel)]="newCategory.description" id="description" placeholder="Description"></textarea>
       </div>
 
-      <button class="btn btn-dark btn-block" (click)="save()">Add new category</button>
+      <button class="btn btn-bright btn-block mt-5" (click)="save()">Add new category</button>
     </div>
-    <div class="col-10 col-md-6 mx-auto mt-4 grey-text">
-      <label>Existing Categories</label>
-      <div class="white-bg grey-border border-radius-sm d-flex align-items-center flex-wrap pb-2 pl-2 pr-2">
-        <div class="pt-1 pb-1 pl-2 pr-2 mt-2 ml-1 mr-1 grey-bg bright-text border-radius-sm cursor-pointer"
-             *ngIf="categories.length == 0">
-          <p class="mb-0">There's no categories yet</p>
-        </div>
-
-        <div class="pt-1 pb-1 pl-2 pr-2 mt-2 ml-1 mr-1 primary-bg bright-text border-radius-sm cursor-pointer"
-             *ngFor="let category of categories">
-          <p class="mb-0">{{category.name}}</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>

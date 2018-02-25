@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.cursor-default {
+  cursor: default;
+}
+
 .text-ellipsis {
   text-overflow: ellipsis;
   white-space: nowrap;
