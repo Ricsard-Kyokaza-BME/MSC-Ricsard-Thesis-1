@@ -1,7 +1,7 @@
 <div class="container-fluid mt-3" *ngIf="offer">
   <div class="row">
     <div class="col-12 grey-text text-center">
-      <h2>{{offer.title}}</h2>
+      <h2 (click)="editOffer()">{{offer.title}}</h2>
     </div>
   </div>
 

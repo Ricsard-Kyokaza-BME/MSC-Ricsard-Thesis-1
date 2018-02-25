@@ -8,6 +8,28 @@ body {
   min-height: 100vh;
   position: relative;
   padding-bottom: 4rem;
+  background-color: $greyFont;
+  //background-color: black;
+
+  font-family: -apple-system-font, "Helvetica Neue", Helvetica, arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga', 'kern';
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased
+}
+
+.bg-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url('/assets/bg2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(120px);
 }
 
 footer {
@@ -16,6 +38,10 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+hr {
+  border-top: 1px solid rgba($white, 0.2);
 }
 
 .font-xs {

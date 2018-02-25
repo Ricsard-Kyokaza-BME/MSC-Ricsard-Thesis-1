@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://dev-balogotthon.ddns.net/api",
+    "changeOrigin": true
+  }
+}

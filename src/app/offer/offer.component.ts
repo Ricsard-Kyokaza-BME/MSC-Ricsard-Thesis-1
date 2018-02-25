@@ -8,6 +8,7 @@ import {plainToClass} from 'class-transformer';
 import {User} from '../../models/user.model';
 import {Category} from '../../models/category.model';
 import {Message} from "../../models/message.model";
+import {AuthenticationService} from '../rest/authentication.service';
 
 @Component({
     selector: 'sd-offer',
@@ -28,7 +29,7 @@ export class OfferComponent implements OnInit, OnDestroy {
     message: Message;
 
     constructor(private _restService: RestService, fileServer: FileServerService,
-                private _route: ActivatedRoute, private _router: Router) {
+                private _route: ActivatedRoute, private _router: Router, private _authService: AuthenticationService) {
         this.fileServer = fileServer;
         this.messageContent = '';
         this.message = new Message();
@@ -58,6 +59,28 @@ export class OfferComponent implements OnInit, OnDestroy {
         this.message.to = (this.offer.owner as User).id;
 
         this.message.create().then(response => this._router.navigate(['/']));
+    }
+
+    isSignedInUserOwn() {
+        if (this._authService.getSignedInUser() == undefined) {
+            return false;
+        }
+
+        if (this.offer.owner === this._authService.getSignedInUser().id) {
+            return true;
+        } else if (
+            (typeof this.offer.owner === 'object')
+            && (this.offer.owner as Object).hasOwnProperty('_id')
+            && (this.offer.owner['_id'] === this._authService.getSignedInUser().id)) {
+            return true;
+        }
+        return false;
+    }
+
+    editOffer() {
+        if(this.isSignedInUserOwn()) {
+            this._router.navigate(['/offer/edit/' + this.offer.id]);
+        }
     }
 
     ngOnDestroy() {

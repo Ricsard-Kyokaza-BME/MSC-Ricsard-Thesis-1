@@ -17,7 +17,6 @@ export class RestService {
         try {
             storage = localStorage;
         } catch (e) {
-            console.log('Local storage is not available');
         }
 
         this._featherClient = feathers()

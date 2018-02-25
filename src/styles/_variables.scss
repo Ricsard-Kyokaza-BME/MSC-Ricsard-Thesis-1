@@ -7,13 +7,18 @@ $secondaryColorLight: #8D9475;
 $secondaryColorVeryLight: #ADC0A3;
 
 $veryLightGrey: #f2f2f2;
+$bgGrey: #D5D9D4;
 
 $border-color: rgba(0,0,0,0.15);
 
 $fontColor: #121212;
 $white: #FFFFFF;
-$greyFont: #727272;
+$greyFont: #383E42;
+$greyFontLight: #565F66;
+//$greyFont: #727272;
+
+$borderRadius: 6px;
 
 //Bootstrap overrides
-$body-bg:    $veryLightGrey;
+$body-bg:    $bgGrey;
 $fa-font-path : '../node_modules/font-awesome/fonts';

@@ -1,6 +1,166 @@
+@import '../../styles/variables';
+$item-height: 250px;
+$item-width: 300px;
+$price-holder-height: 40px;
+
+$item-height-hover: 202px;
+$item-width-hover: 320px;
+
+$top-shelf-height: 720px;
+
+$item-border-radius: 6px;
+$item-hover-size: $item-width-hover / $item-width;
+
+
 .price-holder {
   position: absolute;
   bottom: 0;
-  left: 15px;
-  right: 15px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  border-radius: $item-border-radius;
+}
+
+.price-bg {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  filter: blur(3px);
+  border-radius: $item-border-radius;
+  clip: rect($item-height - $price-holder-height, $item-width, $item-height, 0px);
+  background-image: url(https://balogotthon.ddns.net/file-server/rynGzLVWG.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.price-bg-white-layer {
+  background-color: $white;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  border-radius: $item-border-radius;
+  clip: rect($item-height - $price-holder-height, $item-width, $item-height, 0px);
+}
+
+.price-inner-holder {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $price-holder-height;
+  border-radius: $item-border-radius;
+
+  h1, h2, h3, h4, h5 {
+    line-height: $price-holder-height;
+  }
+}
+
+.offer-bg-image {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// tvOS style tiles
+// ITEMS
+.item {
+  flex-shrink: 0;
+  height: $item-height;
+  //margin: 0 30px;
+  position: relative;
+  width: $item-width;
+
+  &.active .item-highlight,
+  &.active .item-title {
+    opacity: 1;
+  }
+}
+.item-layers-container {
+  height: 100%;
+  perspective: 800px;
+  position: relative;
+  transform: scale3d(1, 1, 1);
+  transform-origin: center bottom;
+  transition: all 100ms ease;
+  z-index: 1;
+
+  .item.active & {
+    transform: scale3d($item-hover-size, $item-hover-size, 1);
+  }
+}
+.item-layers {
+  background: $greyFont;
+  border-radius: $item-border-radius;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, .25);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: transform 200ms ease;
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+.item-highlight {
+  background: radial-gradient(circle, rgba(255, 255, 255, .25), transparent);
+  background-size: 2% 2%;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 200ms ease;
+  z-index: 99;
+}
+.item-layers img{
+  border-radius: $item-border-radius;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all 200ms ease;
+}
+.item-layers .price-holder{
+  border-radius: $item-border-radius;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 200ms ease;
+  padding: 0.5rem 1rem;
+  z-index: 1;
+}
+
+.item-title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
+  line-height: 50px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  top: 100%;
+  transition: opacity 200ms ease;
+  white-space: nowrap;
+  z-index: 10;
+
+  .item:hover & {
+    left: -1*(($item-width-hover - $item-width)/2);
+    right: -1*(($item-width-hover - $item-width)/2);
+  }
 }

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#FFFFFF;}
+	.st0{fill:#383E42;}
 </style>
-<path class="st0" d="M216,240H24c-13.3,0-24-10.7-24-24V88c0-13.3,10.7-24,24-24h192c13.3,0,24,10.7,24,24v128
-	C240,229.3,229.3,240,216,240z M240,424V296c0-13.3-10.7-24-24-24H24c-13.3,0-24,10.7-24,24v128c0,13.3,10.7,24,24,24h192
-	C229.3,448,240,437.3,240,424z M512,216V88c0-13.3-10.7-24-24-24H296c-13.3,0-24,10.7-24,24v128c0,13.3,10.7,24,24,24h192
-	C501.3,240,512,229.3,512,216z M512,424V296c0-13.3-10.7-24-24-24H296c-13.3,0-24,10.7-24,24v128c0,13.3,10.7,24,24,24h192
-	C501.3,448,512,437.3,512,424z"/>
+<path class="st0" d="M512,240H272V64h240V240z M216,240H24c-13.3,0-24-10.7-24-24V88c0-13.3,10.7-24,24-24h192c13.3,0,24,10.7,24,24
+	v128C240,229.3,229.3,240,216,240z M240,240H0V64h240V240z M512,448H272V272h240V448z M240,448H0V272h240V448z"/>
 </svg>

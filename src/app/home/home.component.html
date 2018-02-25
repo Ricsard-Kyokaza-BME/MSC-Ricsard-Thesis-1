@@ -1,23 +1,24 @@
-<div class="container-fluid">
+<div class="container-fluid" style="padding-left: 30px !important; padding-right: 30px !important;">
 
     <!-- Categories list -->
     <div class="row">
-        <div class="col-12 mt-2 text-center grey-text d-flex align-items-center justify-content-center">
+        <div class="col-12 mt-2 text-center grey-text d-flex flex-wrap align-items-center justify-content-center">
             <h3 *ngIf="categories.length == 0">There's no categories</h3>
 
-            <div *ngFor="let categoryListItem of categories"
-                 [ngClass]="{'grey-bg transparent-border-md bright-text': categoryListItem.isSelected, 'transparent-bg dark-grey-border-md grey-text': !categoryListItem.isSelected}"
-                 (click)="toggleSelectCategory(categoryListItem)"
-                 class="category-holder pt-1 pb-1 pl-2 pr-2 ml-1 mr-1 text-left border-radius-sm">
-                <p class="mb-0">{{categoryListItem.category.name}}</p>
-                <p class="mb-0 text-ellipsis"><small title="{{categoryListItem.category.description}}">{{categoryListItem.category.description}}</small></p>
+            <div *ngFor="let categoryListItem of categories; let i=index">
+                <div *ngIf="i < 10"
+                     [ngClass]="{'highlight-shadow-sm white-border': categoryListItem.isSelected, 'transparent-bg white-border-opaque': !categoryListItem.isSelected}"
+                     (click)="toggleSelectCategory(categoryListItem)"
+                     class="category-holder cursor-pointer pt-1 pb-1 pl-2 pr-2 mb-2 ml-1 mr-1 text-center border-radius-sm bright-text">
+                    <p class="mb-0">{{categoryListItem.category.name}}</p>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12">
-            <hr class="mt-2 mb-2"/>
+            <hr class="mt-0 mb-2"/>
         </div>
     </div>
 
@@ -25,7 +26,8 @@
     <div class="row">
         <h3 class="text-center grey-text w-100 mt-4" *ngIf="offers.length == 0">There's no offers in the selected categories</h3>
 
-        <sd-offer-list-item class="col-12 ml-auto ml-md-0 mr-auto mr-md-0 col-md-6 col-lg-4 col-xl-3 pt-1 text-left text-white mb-4"
+        <sd-offer-list-item class="col-12 ml-auto ml-md-0 mr-auto mr-md-0 d-flex flex-column
+        align-items-center col-md-6 col-lg-4 col-xl-3 pt-1 text-center text-white mb-5"
                   *ngFor="let offer of offers | categoryFilter:categories" [offer]="offer"
                   routerLink="/offer/{{offer.id}}"></sd-offer-list-item>
     </div>

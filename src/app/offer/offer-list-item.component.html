@@ -1,19 +1,20 @@
-<div class="w-100 h-100 primary-bg border-radius-sm pb-5">
-  <div class="primary-light-bg border-radius-top-sm grey-text pl-2 pt-2 pb-2 pr-2 d-flex align-items-center justify-content-between">
-    <h4 class="mb-0 text-white">{{offer.title}}</h4>
-    <button class="btn btn-sm btn-dark" (click)="editOffer()"
-            *ngIf="isSignedInUserOwn()">Edit</button>
+<div class="item touchcarousel-item">
+  <div class="item-layers-container">
+    <div class="item-layers">
+      <div class="price-holder grey-text">
+        <div class="price-bg"></div>
+        <div class="price-bg-white-layer"></div>
+        <div class="price-inner-holder">
+          <h4 class="mb-0 mt-0">{{offer.price | number}} Ft</h4>
+        </div>
+      </div>
+      <div class="offer-bg-image" [attr.data-bg]="offer.images?.length ? fileServer.getBaseURL() + offer.images[0] : ''"></div>
+    </div>
+    <div class="item-title">
+      {{offer.title}}
+    </div>
   </div>
-  <img class="w-100" *ngIf="offer.images?.length" [src]="fileServer.getBaseURL() + offer.images[0]">
-  <p class="mt-2 mb-0 text-ellipsis-3-line pl-2 pr-2 mb-2">
-    <small title="{{offer.description}}">{{offer.description}}</small>
-  </p>
-  <hr class="mt-1 mb-1 white-hr"/>
-  <div class="pl-1 pr-1">
-                    <span class="grey-bg text-white font-xs pl-1 pr-1 pb-1 pt-1 ml-1 mr-1 border-radius-sm"
-                          *ngFor="let category of offer.categories">{{category.name}}</span>
-  </div>
-  <div class="price-holder bg-white border-radius-bottom-sm grey-text pl-2 pt-2 pb-2 pr-2">
-    <h4 class="mb-0 mt-0">{{offer.price | number}} Ft</h4>
-  </div>
+</div>
+<div class="item-fix-title mt-3">
+  <h5 class="text-center">{{offer.title}}</h5>
 </div>

@@ -1,11 +1,11 @@
-<div class="primary-bg sticky-top">
+<div class="white-bg sticky-top highlight-shadow-sm">
     <div class="container">
         <div class="row">
-            <nav class="navbar navbar-expand-lg w-100 navbar-dark">
-                <a class="navbar-brand bright-text pt-0 pb-0 d-flex align-items-center flex-row">
+            <nav class="navbar navbar-light navbar-expand-lg w-100">
+                <a class="navbar-brand pt-0 pb-0 d-flex align-items-center flex-row">
                     <img class="mr-2 cursor-pointer" routerLink="/" src="assets/icon.svg" alt="Social Dashboard icon" width="30px">
-                    <small class="cursor-pointer" routerLink="/">CRS</small>
-                    <small class="mb-0 cursor-pointer" *ngIf="isLoggedIn()" routerLink="/user/{{getSignedInUser().id}}">&nbsp;| {{getSignedInUser().getFullName()}}</small>
+                    <small class="cursor-pointer small-hover-zoom-in-out" *ngIf="!isLoggedIn()" routerLink="/">CRS</small>
+                    <small class="mb-0 cursor-pointer small-hover-zoom-in-out" *ngIf="isLoggedIn()" routerLink="/user/{{getSignedInUser().id}}">&nbsp;{{getSignedInUser().getFullName()}}</small>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -13,25 +13,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link bright-text" routerLink="/">Home</a>
+                            <a class="nav-link" routerLink="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link bright-text" *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
+                            <a class="nav-link" *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
                         </li>
                         <li class="nav-item" *ngIf="isLoggedIn()">
-                            <a class="nav-link bright-text cursor-pointer" routerLink="/offer/own">My offers</a>
+                            <a class="nav-link cursor-pointer" routerLink="/offer/own">My offers</a>
                         </li>
                         <li class="nav-item" *ngIf="isLoggedIn() && getSignedInUser().hasRole(Roles.Seller)">
-                            <a class="nav-link bright-text cursor-pointer" routerLink="/offer/create">New offer</a>
+                            <a class="nav-link cursor-pointer" routerLink="/offer/create">New offer</a>
                         </li>
                         <li class="nav-item" *ngIf="isLoggedIn()">
-                            <a class="nav-link bright-text cursor-pointer" routerLink="/message">Messages</a>
+                            <a class="nav-link cursor-pointer" routerLink="/message">Messages</a>
                         </li>
                         <li class="nav-item" *ngIf="isLoggedIn() && isAdmin()">
-                            <a class="nav-link bright-text cursor-pointer" routerLink="/admin/category">Manage Categories</a>
+                            <a class="nav-link cursor-pointer" routerLink="/admin/category">Manage Categories</a>
                         </li>
                         <li class="nav-item" *ngIf="isLoggedIn()">
-                            <a class="nav-link bright-text cursor-pointer" (click)="logout()">Logout</a>
+                            <a class="nav-link cursor-pointer" (click)="logout()">Logout</a>
                         </li>
                         <!--<li class="nav-item">-->
                             <!--<a href="http://localhost:3030/auth/facebook" class="button">Login With Facebook</a>-->
@@ -46,6 +46,6 @@
 
 <router-outlet></router-outlet>
 
-<footer class="text-center primary-light-text primary-bg align-items-center">
-    <small class="mb-0">BME MSC Thesis - 2017</small>
-</footer>
+<!--<footer class="text-center primary-light-text primary-bg align-items-center">-->
+    <!--<small class="mb-0">BME MSC Thesis - 2017</small>-->
+<!--</footer>-->
