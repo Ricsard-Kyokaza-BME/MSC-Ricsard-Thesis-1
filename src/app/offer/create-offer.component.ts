@@ -9,9 +9,28 @@ import {MapsAPILoader} from '@agm/core';
 import {} from 'googlemaps';
 import {Subscription} from 'rxjs/Subscription';
 import {User} from '../../models/user.model';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
     selector: 'sd-create-offer',
+    animations: [
+        trigger(
+            'showAnimation',
+            [
+                transition(
+                    ':enter', [
+                        style({transform: 'scale(0.1)', opacity: 0}),
+                        animate('300ms', style({transform: 'scale(1)', 'opacity': 1}))
+                    ]
+                ),
+                transition(
+                    ':leave', [
+                        style({transform: 'scale(1)', 'opacity': 1}),
+                        animate('300ms', style({transform: 'scale(0.1)', 'opacity': 0}))
+                    ]
+                )]
+        )
+    ],
     templateUrl: './create-offer.component.html',
     styleUrls: ['./create-offer.component.scss']
 })

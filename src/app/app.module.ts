@@ -11,6 +11,7 @@ import {HttpModule} from '@angular/http';
 import {FileServerService} from './rest/file-server.service';
 import {SdCommonModule} from './sd-common/sd-common.module';
 import {IsLoggedInGuard} from "./guards/is-logged-in.guard";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {IsLoggedInGuard} from "./guards/is-logged-in.guard";
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     SdCommonModule,

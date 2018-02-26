@@ -8,14 +8,13 @@
   </div>
   <div class="row">
     <div class="col-12 col-md-6">
-      <div class="custom-file h-100 w-100 border-radius-sm d-flex flex-column align-items-center justify-content-center"
-           [ngClass]="{'white-border': !selectedImagePreviewSrc}">
+      <div class="custom-file h-100 w-100 border-radius-sm d-flex flex-column align-items-center justify-content-center">
         <input #pictureFileInput type="file" class="custom-file-input" (change)="fileChange($event)" id="file">
-        <label *ngIf="!selectedImagePreviewSrc" class="mb-0" for="file">Choose a picture</label>
-        <div class="text-center" *ngIf="selectedImagePreviewSrc">
+        <label *ngIf="!selectedImagePreviewSrc" [@showAnimation] class="mb-0" for="file">Choose a picture</label>
+        <div class="text-center" *ngIf="selectedImagePreviewSrc" [@showAnimation]>
           <img class="highlight-shadow-sm" width="70%" [src]="selectedImagePreviewSrc">
         </div>
-        <button *ngIf="selectedImagePreviewSrc" class="btn btn-bright remove-picture-btn mt-3" (click)="clearFileInput($event)">
+        <button *ngIf="selectedImagePreviewSrc" [@showAnimation] class="btn btn-bright remove-picture-btn mt-3" (click)="clearFileInput($event)">
           Remove
         </button>
       </div>
