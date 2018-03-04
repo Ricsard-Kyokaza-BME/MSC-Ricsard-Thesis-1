@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-12 col-md-8 mx-auto mt-4 mb-4 bright-text text-center">
       <h2 class="cursor-pointer mb-0" (click)="isSignedInUserOwn() ? editOffer() : ''">{{offer.title}}</h2>
-      <h5 class="opacity-0-4 cursor-pointer mt-0" *ngIf="isSignedInUserOwn()" (click)="editOffer()"><small>(Click to edit)</small></h5>
-      <h5 class="cursor-default white-border border-radius-sm w-fit-content py-1 px-5 darker-bg-opaque mx-auto">{{offer.price | number}} Ft</h5>
+      <h5 class="opacity-0-4 cursor-pointer mt-0 mb-3" *ngIf="isSignedInUserOwn()" (click)="editOffer()"><small>(Click to edit)</small></h5>
+      <h5 class="cursor-default white-border border-radius-sm w-fit-content py-1 px-5 darker-bg-opaque mx-auto highlight-shadow-sm">{{offer.price | number}} Ft</h5>
     </div>
   </div>
 
