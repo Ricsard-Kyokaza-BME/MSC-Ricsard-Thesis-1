@@ -9,9 +9,28 @@ import {User} from '../../models/user.model';
 import {Category} from '../../models/category.model';
 import {Message} from "../../models/message.model";
 import {AuthenticationService} from '../rest/authentication.service';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
     selector: 'sd-offer',
+    animations: [
+        trigger(
+            'showAnimation',
+            [
+                transition(
+                    ':enter', [
+                        style({transform: 'scale(0.1)', opacity: 0}),
+                        animate('300ms', style({transform: 'scale(1)', 'opacity': 1}))
+                    ]
+                ),
+                transition(
+                    ':leave', [
+                        style({transform: 'scale(1)', 'opacity': 1}),
+                        animate('300ms', style({transform: 'scale(0.1)', 'opacity': 0}))
+                    ]
+                )]
+        )
+    ],
     templateUrl: './offer.component.html',
     styleUrls: ['./offer.component.scss']
 })

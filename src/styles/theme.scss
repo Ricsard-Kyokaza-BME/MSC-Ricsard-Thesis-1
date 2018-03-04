@@ -44,6 +44,10 @@
   background-color: rgba($black, 0.1) !important;
 }
 
+.darker-bg-opaque-0-4 {
+  background-color: rgba($black, 0.4) !important;
+}
+
 .grey-bg {
   background-color: $greyFont !important;
 }
@@ -142,4 +146,12 @@
 
 .crs-file-label {
   background-color: transparent;
+}
+
+.opacity-0-4 {
+  opacity: 0.4;
+}
+
+.w-fit-content {
+  width: fit-content;
 }

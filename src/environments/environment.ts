@@ -5,5 +5,5 @@
 
 export const environment = {
     production: false,
-    apiEndpoint: 'http://localhost:3030/api'
+    apiEndpoint: 'https://dev-balogotthon.ddns.net/api'
 };

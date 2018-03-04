@@ -68,7 +68,8 @@ label {
   }
 
   &:disabled {
-    color: $greyFont;
+    color: $white;
+    background-color: rgba($black, 0.4);
   }
 
   &.transparent {
