@@ -37,7 +37,7 @@ export class MessagesComponent implements OnInit {
                     {to: this._authService.getSignedInUser().id},
                     {from: this._authService.getSignedInUser().id}
                 ],
-                $populate: 'from'
+                $populate: ['from', 'to']
             }
         }).then(
             response => {

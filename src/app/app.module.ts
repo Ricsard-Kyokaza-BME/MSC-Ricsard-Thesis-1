@@ -25,13 +25,20 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HttpModule,
     SdCommonModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full'},
-      { path: 'login', loadChildren: './login/login.module#LoginModule'},
-      { path: 'sign-up', loadChildren: './sign-up/sign-up.module#SignUpModule'},
-      { path: 'offer', loadChildren: './offer/offer.module#OfferModule'},
-      { path: 'user', loadChildren: './user/user.module#UserModule'},
-      { path: 'message', loadChildren: './message/message.module#MessageModule'},
-      { path: 'admin', loadChildren: './admin/admin.module#AdminModule'}
+      { path: '',
+          component: HomeComponent, pathMatch: 'full'},
+      { path: 'login',
+          loadChildren: './login/login.module#LoginModule'},
+      { path: 'sign-up',
+          loadChildren: './sign-up/sign-up.module#SignUpModule'},
+      { path: 'offer',
+          loadChildren: './offer/offer.module#OfferModule'},
+      { path: 'user',
+          loadChildren: './user/user.module#UserModule'},
+      { path: 'message',
+          loadChildren: './message/message.module#MessageModule'},
+      { path: 'admin',
+          loadChildren: './admin/admin.module#AdminModule'}
     ])
   ],
   providers: [

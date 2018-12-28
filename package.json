@@ -14,7 +14,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start:proxy": "ng serve --verbose -pc proxy.conf.json",
-    "build": "ng build",
+    "build": "ng build -prod -no-sourcemap -aot --buildOptimizer",
     "build:client-and-server-bundles": "ng build -prod -no-sourcemap -aot --buildOptimizer && ng build -prod -no-sourcemap -aot --buildOptimizer --app 1 --output-hashing=false",
     "build:static": "npm run build:client-and-server-bundles && npm run webpack:server && npm run generate:static",
     "build:dynamic": "npm run build:client-and-server-bundles && npm run webpack:server",
